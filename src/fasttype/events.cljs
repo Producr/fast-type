@@ -133,7 +133,7 @@
           (assoc-in [:lesson :summary :total-time] total-time)
           (assoc-in [:lesson :summary :mistakes] mistakes)
           (assoc-in [:lesson :summary :CPM] (if (js/isNaN CPM) 0 CPM))
-          (assoc-in [:lesson :summary :accuracy] (* (/ corrects total-keystrokes) 100))))))
+          (assoc-in [:lesson :summary :accuracy] (.toFixed (* (/ corrects total-keystrokes) 100) 2))))))
 
 
 (rf/reg-event-db
